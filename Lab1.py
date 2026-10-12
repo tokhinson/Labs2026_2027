@@ -94,8 +94,9 @@ def function_print(n):
     result = []
 
     for y in range(n - 1, -1, -1):
-        x = int(y ** 0.5)
+        x = y - 1
         line = (
+            str(y) + ' '
             f'{white}{"  " * x}'
             f'{black}{"  " if x >= 0 else ""}'
             f'{white}{"  " * (n - x - 1)}{reset}'
@@ -103,17 +104,20 @@ def function_print(n):
         result.append(line)
 
     print(*result, sep='\n')
+    print(end=' ')
+    for x in range(n):
+        print(' ' + str(x), end='')
 
 
-# print_Benin_Flag(14)
+print_Benin_Flag(14)
 
-# pattern(10, 13, 9)
+pattern(7, 13, 9)
 
-# sleep(4)
+sleep(4)
 
-# loop_animated(13, 22)
+loop_animated(13, 22)
 
-# graphics_group_print()
+graphics_group_print()
 
-function_print(18)
+function_print(10)
 
