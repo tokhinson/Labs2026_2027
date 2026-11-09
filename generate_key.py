@@ -13,10 +13,11 @@ def generate_key(decnum = '') -> str:
             candidate = list(key[-i-1:-1])
             for char in enumerate(candidate):
                 n, s = char
-                if s.isdigit():
-                    candidate[n] = str((int(s) + int(decnum[4 - i]) * (-1) ** i) % 10)
-                else:
-                    candidate[n] = chr((ord(s) - ord('A') + int(decnum[4 - i]) * (-1) ** i) % 26 + ord('A'))
+                candidate[n] = letters[(letters.index(s) + int(decnum[4 - i]) * (-1) ** i) % len(letters)]
+                # if s.isdigit():
+                #     candidate[n] = str((int(s) + int(decnum[4 - i]) * (-1) ** i) % 10)
+                # else:
+                #     candidate[n] = chr((ord(s) - ord('A') + int(decnum[4 - i]) * (-1) ** i) % 26 + ord('A'))
             key += '-' + ''.join(candidate)
         return key
 
